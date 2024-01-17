@@ -54,7 +54,7 @@ from .services import SyncToken as SyncToken
 from .web import download_required
 from .kobo_auth import requires_kobo_auth, get_auth_token
 
-KOBO_FORMATS = {"KEPUB": ["KEPUB"], "EPUB": ["EPUB3", "EPUB"]}
+KOBO_FORMATS = {"KEPUB": ["KEPUB"], "EPUB": ["EPUB3", "EPUB"], "CBZ": ["CBZ"]}
 KOBO_STOREAPI_URL = "https://storeapi.kobo.com"
 KOBO_IMAGEHOST_URL = "https://cdn.kobo.com/book-images"
 
