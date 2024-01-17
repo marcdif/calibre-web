@@ -54,7 +54,7 @@ from .services import SyncToken as SyncToken
 from .web import download_required
 from .kobo_auth import requires_kobo_auth, get_auth_token
 
-KOBO_FORMATS = {"KEPUB": ["KEPUB"], "EPUB": ["EPUB3", "EPUB"], "CBZ": ["CBZ"]}
+KOBO_FORMATS = {"KEPUB": ["KEPUB"], "EPUB": ["EPUB3", "EPUB"], "CBZ": ["CBZ"], "CBR": ["CBR"]}
 KOBO_STOREAPI_URL = "https://storeapi.kobo.com"
 KOBO_IMAGEHOST_URL = "https://cdn.kobo.com/book-images"
 
@@ -439,6 +439,7 @@ def get_metadata(book):
 
     for book_data in kepub if len(kepub) > 0 else book.data:
         if book_data.format not in KOBO_FORMATS:
+            log.debug('Skipping %s:%s entry due to unsupported format' % (book.id, book_data.formatZz))
             continue
         for kobo_format in KOBO_FORMATS[book_data.format]:
             # log.debug('Id: %s, Format: %s' % (book.id, kobo_format))
