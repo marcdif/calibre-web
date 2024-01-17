@@ -444,7 +444,7 @@ def get_metadata(book):
         for kobo_format in KOBO_FORMATS[book_data.format]:
             # log.debug('Id: %s, Format: %s' % (book.id, kobo_format))
             try:
-                if get_epub_layout(book, book_data) == 'pre-paginated':
+                if kobo_format != 'CBZ' and get_epub_layout(book, book_data) == 'pre-paginated':
                     kobo_format = 'EPUB3FL'
                 download_urls.append(
                     {
