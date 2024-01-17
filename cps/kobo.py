@@ -448,7 +448,7 @@ def get_metadata(book):
                     kobo_format = 'EPUB3FL'
                 download_urls.append(
                     {
-                        "Format": kobo_format,
+                        "Format": ("EPUB" if kobo_format == 'CBZ' else kobo_format),
                         "Size": book_data.uncompressed_size,
                         "Url": get_download_url_for_book(book.id, book_data.format),
                         # The Kobo forma accepts platforms: (Generic, Android)
